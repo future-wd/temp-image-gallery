@@ -1,0 +1,3 @@
+imports:
+  - path: github.com/future-wd/temp-image-gallery
+replacements: "github.com/future-wd/temp-image-gallery -> ../../"

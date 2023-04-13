@@ -1,0 +1,138 @@
+/*
+MIT License
+Copyright (c) 2023 Johannes Bier
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+}
+
+.overlay-background {
+    z-index: 100;
+    background-color: #0b0b0b;
+    opacity: .8;
+}
+
+.overlay-content {
+    color: #fff;
+    z-index: 110;
+}
+
+.gallery-wrapper {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.gallery-control-prev,
+.gallery-control-next,
+.gallery-control-close {
+    height: 100%;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.gallery-control-close:hover {
+    color: #006400ab;
+}
+
+.gallery-control-prev {
+    grid-area: 1 / 1 / 8 / 2; 
+}
+
+.gallery-control-next {
+    grid-area: 1 / 7 / 8 / 8; 
+}
+
+.gallery-control-close {
+    min-height: 1.5em;
+    display: flex;
+    flex-direction: column;
+    cursor: zoom-out;
+    color: #008000ff;
+    font-size: x-large;
+    font-weight: bold;
+    transition: color .2s ease-in-out;
+}
+
+.gallery-control-close.top {
+    grid-area: 1 / 2 / 2 / 7; 
+    justify-content: start;
+    text-align: right;
+}
+
+.gallery-control-close.bottom {
+    grid-area: 7 / 2 / 8 / 7; 
+    justify-content: end;
+    text-align: center;
+}
+
+.prev-icon,
+.next-icon {
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    background: transparent no-repeat center center;
+    background-size: 100% 100%;
+}
+
+.prev-icon svg path,
+.next-icon svg path {
+    transition: fill .2s ease-in-out;
+}
+
+.gallery-control-prev:hover svg path,
+.gallery-control-next:hover svg path {
+    fill: #006400ab;
+}
+
+.gallery {
+    grid-area: 2 / 2 / 7 / 7; 
+    height: 100%;
+    overflow: hidden;
+}
+
+.gallery-inner {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: transform 1s ease 0s;
+}
+
+.gallery-img-wrapper {
+    height: 100%;
+    width: 100%;
+}
+
+.gallery-img-fluid {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
