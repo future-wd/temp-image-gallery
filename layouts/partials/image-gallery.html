@@ -1,0 +1,2 @@
+{{- $js := resources.Get "simple-image-gallery/js/index.js" | js.Build (dict "minify" true) -}}
+<script type="text/javascript" src="{{ $js.RelPermalink }}" defer></script>
